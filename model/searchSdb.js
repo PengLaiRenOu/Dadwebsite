@@ -4,8 +4,8 @@ getBrand = function getBrand(callback) {
     var mysql      = require('mysql');
     var connection = mysql.createConnection({
         host     : 'localhost',
-        user     : 'root',
-        password : '',
+        user     : 'PL',
+        password : '23094740',
         database : 'data'
     });
     var cmd = "select brand from data where 1 GROUP BY brand";
@@ -22,8 +22,8 @@ getCarType = function getCarType(brand,callback) {
     var mysql      = require('mysql');
     var connection = mysql.createConnection({
         host     : 'localhost',
-        user     : 'root',
-        password : '',
+        user     : 'PL',
+        password : '23094740',
         database : 'data'
     });
     var cmd = "select carType from data where brand ='" + brand +"' GROUP BY carType";
@@ -40,8 +40,8 @@ getDisplacement = function getDisplacement(brand,carType,callback) {
     var mysql      = require('mysql');
     var connection = mysql.createConnection({
         host     : 'localhost',
-        user     : 'root',
-        password : '',
+        user     : 'PL',
+        password : '23094740',
         database : 'data'
     });
     var cmd = "select displacement from data where brand = '"+ brand +"' and carType ='" + carType +"' GROUP BY displacement";
@@ -59,8 +59,8 @@ getYear = function getYear(brand,carType,displacement,callback) {
     var mysql      = require('mysql');
     var connection = mysql.createConnection({
         host     : 'localhost',
-        user     : 'root',
-        password : '',
+        user     : 'PL',
+        password : '23094740',
         database : 'data'
     });
     var cmd = "select year from data where brand = '" + brand + "'and displacement ='" + displacement +"' and cartype = '"+ carType+"' GROUP BY year";
@@ -78,8 +78,8 @@ fillList = function fillList(brand,carType,displacement,year,callback) {
     var mysql      = require('mysql');
     var connection = mysql.createConnection({
         host     : 'localhost',
-        user     : 'root',
-        password : '',
+        user     : 'PL',
+        password : '23094740',
         database : 'data'
     });
     var cmd = "select * from data where brand = '" + brand + "'and displacement ='" + displacement +"' and cartype = '"+ carType+"' and year = '" + year + "'";

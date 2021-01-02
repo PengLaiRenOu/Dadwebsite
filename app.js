@@ -16,6 +16,7 @@ var catchYearRouter = require('./routes/catchYear');
 var fillListRouter = require('./routes/fillList');
 var obd2Router = require('./routes/obd2');
 var YTRouter = require('./routes/YT');
+var TZRouter = require('./routes/TZ');
 
 
 var app = express();
@@ -31,8 +32,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
   secret: 'recommand 128 bytes random string',
-  store:new MongoStore({url:'mongodb://localhost:27017/sessiondb'}),
   cookie:{maxAge: 86400*1000},
+  store:new MongoStore({url:'mongodb://localhost:27017/sessiondb'}),
   resave: false,
   saveUninitialized: true
 
@@ -48,6 +49,7 @@ app.use('/catchYear', catchYearRouter);
 app.use('/fillList', fillListRouter);
 app.use('/obd2', obd2Router);
 app.use('/YT', YTRouter);
+app.use('/TZ', TZRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
