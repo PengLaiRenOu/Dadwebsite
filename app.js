@@ -32,8 +32,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
   secret: 'recommand 128 bytes random string',
-  store:new MongoStore({url:'mongodb://localhost:27017/sessiondb'}),
   cookie:{maxAge: 86400*1000},
+  store:new MongoStore({url:'mongodb://localhost:27017/sessiondb'}),
   resave: false,
   saveUninitialized: true
 
