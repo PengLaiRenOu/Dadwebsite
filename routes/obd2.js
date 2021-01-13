@@ -11,14 +11,15 @@ router.get('/', function(req, res, next) {
   }
 });
 router.post('/', function(req, res) {
-  console.log(req.session.userName);
-  if(req.session.userName == undefined){
-    res.redirect('/');
-  }else{
-    let tmp = "https://www.obd-data.com/gb/"+ req.body.search +".html";
-    res.redirect(tmp);
-  }
-      
+  require('../model/searchSdb.js');
+  getObd(req.body.obd,function (err, results) {                           
+    if(results == '') {
+        return;
+    }else {
+        res.send(results);
+        return;
+    }
+  });
 
 });
 module.exports = router;

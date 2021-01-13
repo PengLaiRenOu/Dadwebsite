@@ -93,3 +93,22 @@ fillList = function fillList(brand,carType,displacement,year,callback) {
         callback(err,result);                    
     });       
  };
+getObd = function getObd(obd,callback) {
+    var mysql      = require('mysql');
+    var connection = mysql.createConnection({
+        host     : 'localhost',
+        user     : 'root',
+        password : '',
+        database : 'data'
+    });
+    var cmd = "select * from obd where mal like '"+ obd +"%'";
+    // console.log(cmd);
+    connection.query(cmd, function (err, result) {
+        if (err) {
+            console.log(err);
+            return;
+        }
+        // console.log(result);
+        callback(err,result);                    
+    });       
+ };

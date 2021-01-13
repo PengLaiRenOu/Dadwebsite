@@ -23,13 +23,14 @@
     <img id="durango" src="../images/duglas_oil1.png" style="display:block; margin:auto;">
     <div>
     <span>輸入故障碼</span><br>
-    <form method="POST">
-      <input type="text" id="search" name="search"><button name="myBtn" id = "myBtn">查詢</button>
-    </form>
+    <input type="text" id="search" name="search"><button name="myBtn" id = "myBtn" onclick="searchObd()">查詢</button>
 
     <br>
     <br>
-    <a href="ShihChung.html">車子資料</a> <a href="https://tw.bid.yahoo.com/booth/%E3%80%90%E5%9C%93%E5%A4%A2%E8%A3%9C%E7%B5%A6%E7%AB%99%E3%80%91-Y4716620231?page=1&bfe=1">工具天地</a> <a href ="YT.html">產品介紹影片</a> <a href="TZ.html">保養歸零</a>
+    <a href="search">車子資料</a> <a href="https://tw.bid.yahoo.com/booth/%E3%80%90%E5%9C%93%E5%A4%A2%E8%A3%9C%E7%B5%A6%E7%AB%99%E3%80%91-Y4716620231?page=1&bfe=1">工具天地</a> <a href ="YT">產品介紹影片</a> <a href="TZ">保養歸零</a>
+    <br>
+    <br>
+    <div id="obd"></div>
     <script>
       function opsta() {
         document.getElementById('durango').width = document.body.clientWidth * 0.7;
@@ -45,6 +46,6 @@
     }
   });
     </script>
-
+    <script src="../javascripts/searchObd.js"></script>
 </body>
 </html>
