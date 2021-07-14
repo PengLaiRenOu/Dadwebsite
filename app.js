@@ -9,7 +9,9 @@ const MongoStore = require('connect-mongo')(session);
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var searchRouter = require('./routes/search');
+var newSearchRouter = require('./routes/newSearch');
 var catchBrandRouter = require('./routes/catchBrand');
+var refreshSelectRouter = require('./routes/refreshSelect');
 var catchCarTypeRouter = require('./routes/catchCarType');
 var catchDisplacementRouter = require('./routes/catchDisplacement');
 var catchYearRouter = require('./routes/catchYear');
@@ -33,7 +35,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
   secret: 'recommand 128 bytes random string',
   cookie:{maxAge: 86400*1000},
-  store:new MongoStore({url:'mongodb://localhost:27017/sessiondb'}),
+  // store:new MongoStore({url:'mongodb://localhost:27017/sessiondb'}),
   resave: false,
   saveUninitialized: true
 
@@ -42,7 +44,9 @@ app.use(session({
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/search', searchRouter);
+app.use('/newSearch', newSearchRouter);
 app.use('/catchBrand', catchBrandRouter);
+app.use('/refreshSelect', refreshSelectRouter);
 app.use('/catchCarType', catchCarTypeRouter);
 app.use('/catchDisplacement', catchDisplacementRouter);
 app.use('/catchYear', catchYearRouter);

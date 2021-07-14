@@ -1,19 +1,15 @@
 var express = require('express');
 var router = express.Router();
-var session = require('express-session');
-
-
+/* GET home page. */
 router.get('/', function(req, res, next) {
-  console.log(req.session.userName);
+  console.log(req.session.name);
   if(req.session.userName == undefined){
     res.redirect('/');
   }else{
-    res.render('YT', { title: 'Express' });
+    res.render('newSearch', {name: req.session.name});
   }
 });
-router.post('/', function(req, res) {
-  var userName = "a";
-      
-
+router.post('/', function(req, res){
+  
 });
 module.exports = router;

@@ -4,8 +4,8 @@ getUserByUserName = function getUserByUserName(username,password, callback) {
     var mysql      = require('mysql');
     var connection = mysql.createConnection({
         host     : 'localhost',
-        user     : 'PL',
-        password : '23094740',
+        user     : 'root',
+        password : '',
         database : 'data'
     });
     var cmd = "select ac,pw from custom where ac='"+ username +"' and pw=PASSWORD('"+password+"')";
