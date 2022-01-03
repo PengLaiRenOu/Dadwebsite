@@ -24,7 +24,7 @@ router.get('/', function(req, res, next) {
   require('../model/session.js');
   
   if(req.session.userName == undefined){
-    res.render('index', { title: 'Express' });
+    res.render('index', { title: '' });
   }else{
     res.redirect('search');
   }
@@ -39,18 +39,14 @@ router.post('/', function(req, res) {
           res.render('index',{title:'登入失敗'});
           return;
       }else {
-          res.locals.username = userName;
-          //設定session
-          req.session.userName = res.locals.username;
-          console.log("---------------------------")
-          console.log(nameData.length)
-          for(let i = 0;i < nameData[0].length;i++){
-            if(res.locals.username == nameData[0][i]){
-              req.session.name = nameData[1][i]; 
-              console.log(req.session.name);
-            }
+          // res.locals.username = userName;
+          if(results[0]["authority"] == -1){
+            res.render('index',{title:'帳號已鎖，請與陳世昌聯絡(0973170180)'});
+            return;
           }
-          // console.log(req.session.userName);                       
+          //設定session
+          req.session.userName = results[0]["name"];
+          req.session.name = results[0]["name"];
           res.redirect('search');
           return;
       }    

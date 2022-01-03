@@ -4,8 +4,8 @@ var session = require('express-session');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  console.log("abc");
-  console.log(req.session.name);
+  // console.log("abc");
+  // console.log(req.session.name);
   if(req.session.userName == undefined){
     res.redirect('/');
   }else{

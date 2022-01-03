@@ -8,14 +8,14 @@ getUserByUserName = function getUserByUserName(username,password, callback) {
         password : '',
         database : 'data'
     });
-    var cmd = "select ac,pw from custom where ac='"+ username +"' and pw=PASSWORD('"+password+"')";
-    console.log(cmd);
+    var cmd = "select ac,pw,name,authority from custom where ac='"+ username +"' and pw=PASSWORD('"+password+"')";
+    // console.log(cmd);
     connection.query(cmd, function (err, result) {
         if (err) {
             console.log(err);
             return;
         }
-        console.log("test");
+        // console.log("test");
         //connection.release();
         callback(err,result);                    
     });       
