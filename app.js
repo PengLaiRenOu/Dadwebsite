@@ -19,6 +19,9 @@ var fillListRouter = require('./routes/fillList');
 var obd2Router = require('./routes/obd2');
 var YTRouter = require('./routes/YT');
 var TZRouter = require('./routes/TZ');
+var manageRouter = require('./routes/manage');
+var manageShowRouter = require('./routes/manageShow');
+var changeAuthorityRouter = require('./routes/changeAuthority');
 
 
 var app = express();
@@ -54,6 +57,9 @@ app.use('/fillList', fillListRouter);
 app.use('/obd2', obd2Router);
 app.use('/YT', YTRouter);
 app.use('/TZ', TZRouter);
+app.use('/manage', manageRouter);
+app.use('/manageShow', manageShowRouter);
+app.use('/changeAuthority', changeAuthorityRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
